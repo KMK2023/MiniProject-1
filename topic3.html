@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Topic 2</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Bootstap Cards</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div id='car-list' class="row">
+
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="title" aria-label="title">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="content" aria-label="content">
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </main>
+  <script>
+
+const cards = [
+      {id: 1, title: 'News1', content: "bla"},
+      {id: 2, title: 'News2', content: "ble"},
+      {id: 2, title: 'News2', content: "ble"}
+    ];
+    function addCard(card) {
+      const template = document.getElementById("card-template").content.cloneNode(true);
+      template.querySelector('.card-title').innerText = card.title;
+      template.querySelector('.card-text').innerText = card.content;
+      document.querySelector('#car-list').appendChild(template);
+    }
+    if ('content' in document.createElement('template')) {
+      cards.forEach((card) => {
+        addCard(card);
+      })
+    }
+
+
+   let news = [
+  { id: 1, title: 'News1', content: "bla" },
+  { id: 2, title: 'News2', content: "ble" },
+  { id: 3, title: 'News3', content: "blu" }
+];
+function NewsContainer() {
+  const newsContainer = document.getElementByID('news-container');
+  newsContainer.innerHTML = "";
+
+  news.forEach(article => {const articleElement = document.createElement('div');
+    articleElement.innerHTML = `<h2>${article.title}</h2>
+    <p>${article.content}</p>`;
+    newsContainer.appendChild(articleElement);
+  });
+}
+
+window.onload = function() {
+  populateNewsContainer();
+  setInterval(populateNewsContainer, 5000); // Update news every 5 seconds
+};
+  </script>
+</body>
+</html>
