@@ -28,3 +28,11 @@ ol.choices
         padding: 5px;
         font-size: 20px;
       }
+
+
+.container-fluid>row
+{
+    display:inline-flex;
+    padding: 500px;
+
+}
